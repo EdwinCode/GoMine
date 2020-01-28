@@ -52,16 +52,13 @@ func (r *Cell) Draw(screen *ebiten.Image) {
 func defaultSq() Cell {
 	return newcell(0, 0)
 }
-func DefaultGrid() [8]Cell {
-	row := [8]Cell{
-		newcell(0, 0),
-		newcell(30, 0),
-		newcell(60, 0),
-		newcell(90, 0),
-		newcell(120, 0),
-		newcell(150, 0),
-		newcell(180, 0),
-		newcell(210, 0),
+func DefaultGrid(dx, dy int) [][]Cell {
+	grid := make([][]Cell, dy)
+	for rows := 0; rows < dy; rows++ {
+		grid[rows] = make([]Cell, dx)
+		for r := range grid[rows] {
+			grid[rows][r] = newcell(float64(30*r), float64(30*rows))
+		}
 	}
-	return row
+	return grid
 }

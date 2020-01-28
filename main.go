@@ -14,8 +14,10 @@ func update(screen *ebiten.Image) error {
 	ebitenutil.DebugPrint(screen, "This is GoMine")
 
 	// Default grid
-	for _, v := range cell.DefaultGrid() {
-		v.Draw(screen)
+	for _, v := range cell.DefaultGrid(12, 16) {
+		for _, t := range v {
+			t.Draw(screen)
+		}
 	}
 
 	// Get the x, y position of the cursor from the CursorPosition() function
@@ -29,7 +31,7 @@ func update(screen *ebiten.Image) error {
 
 func main() {
 	// Initialize Ebiten, and loop the update() function
-	if err := ebiten.Run(update, 320, 240, 2, "GoMine"); err != nil {
+	if err := ebiten.Run(update, 640, 480, 1, "GoMine"); err != nil {
 		panic(err)
 	}
 }
