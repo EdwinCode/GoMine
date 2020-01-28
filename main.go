@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 
+	"github.com/EdwinCode/GoMine/cell"
+
 	"github.com/hajimehoshi/ebiten"
 	"github.com/hajimehoshi/ebiten/ebitenutil"
 )
@@ -12,7 +14,7 @@ func update(screen *ebiten.Image) error {
 	ebitenutil.DebugPrint(screen, "This is GoMine")
 
 	// Default grid
-	for _, v := range defaultGrid() {
+	for _, v := range cell.DefaultGrid() {
 		v.Draw(screen)
 	}
 

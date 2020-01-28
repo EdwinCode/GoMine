@@ -1,4 +1,4 @@
-package main
+package cell
 
 import (
 	_ "image/png"
@@ -52,7 +52,7 @@ func (r *Cell) Draw(screen *ebiten.Image) {
 func defaultSq() Cell {
 	return newcell(0, 0)
 }
-func defaultGrid() [8]Cell {
+func DefaultGrid() [8]Cell {
 	row := [8]Cell{
 		newcell(0, 0),
 		newcell(30, 0),
